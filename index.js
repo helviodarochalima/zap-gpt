@@ -36,13 +36,13 @@ const getDavinciResponse = async (clientText) => {
         "model": "text-davinci-003",
         "prompt": clientText,
         "max_tokens": 2048,
-        "temperature": 1
+        "temperature": 0.1
     }
 
     try {
         const { data } = await axiosInstance.post('v1/completions', body)
         const botAnswer = data.choices[0].text
-        return `ChatGPT 🤖 ${botAnswer}`
+        return `Melhoramigo 🤖 ${botAnswer}`
     } catch (e) {
         return `❌ OpenAI Response Error`
     }
@@ -65,8 +65,8 @@ const getDalleResponse = async (clientText) => {
 
 const commands = async (message) => {
     const iaCommands = {
-        davinci3: "/bot",
-        dalle: "/img",
+        davinci3: "/cnv"
+    *    dalle: "/img",
     }
     let firstWord = message.body.substring(0, message.body.indexOf(" "))
    /*
